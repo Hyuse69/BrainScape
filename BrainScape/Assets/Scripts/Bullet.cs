@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -14,5 +15,15 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         transform.position += new Vector3(0.1f, 0, 0);
+    }
+
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy")) other.GetComponent<Enemy>().Hit();//
     }
 }
