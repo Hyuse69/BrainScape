@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class A_Nerfs : MonoBehaviour
+public class L_Nerfs : MonoBehaviour
 {
     [SerializeField] private SO_Ennemis ennemisManager;
 
@@ -16,7 +16,6 @@ public class A_Nerfs : MonoBehaviour
     private Vector3 defilement;
     private Quaternion randomRotate;
     private float scaleSizeY = 15;
-    public List<Vector3> listPosNerfs;
     // Start is called before the first frame update
     void Start()
     {

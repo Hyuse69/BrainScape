@@ -11,7 +11,35 @@ public class A_NerfsPtsFaible : MonoBehaviour
     void Start()
     {
         life = transform.parent.gameObject.GetComponent<A_Nerfs>().life;
-        transform.position = new Vector3(transform.position.x, Random.Range(-0.3f, 0.3f), transform.position.z);
+        if (transform.parent.gameObject.GetComponent<A_Nerfs>().listPosNerfs.Count == 0)
+        {
+            //Debug.Log(transform.parent.gameObject.GetComponent<A_Nerfs>().listPosNerfs.Count);
+            transform.position = new Vector3(transform.position.x, Random.Range(-0.25f, 0.25f), transform.position.z);
+            transform.parent.gameObject.GetComponent<A_Nerfs>().listPosNerfs.Add(transform.position);
+            //Debug.Log(transform.parent.gameObject.GetComponent<A_Nerfs>().listPosNerfs.Count);
+        }
+        else
+        {
+            if (transform.parent.gameObject.GetComponent<A_Nerfs>().listPosNerfs.Count <= 1)
+            {
+                transform.position = new Vector3(transform.position.x, Random.Range(-0.25f, 0.25f), transform.position.z);
+                while (Vector3.Distance(transform.position,transform.parent.gameObject.GetComponent<A_Nerfs>().listPosNerfs[0]) <= 0.05)
+                {
+                    transform.position = new Vector3(transform.position.x, Random.Range(-0.25f, 0.25f), transform.position.z);
+                }
+                transform.parent.gameObject.GetComponent<A_Nerfs>().listPosNerfs.Add(transform.position);
+            }
+            else
+            {
+                transform.position = new Vector3(transform.position.x, Random.Range(-0.25f, 0.25f), transform.position.z);
+                while ((Vector3.Distance(transform.position,transform.parent.gameObject.GetComponent<A_Nerfs>().listPosNerfs[0]) <= 0.05) 
+                       || (Vector3.Distance(transform.position,transform.parent.gameObject.GetComponent<A_Nerfs>().listPosNerfs[1]) <= 0.05))
+                {
+                    transform.position = new Vector3(transform.position.x, Random.Range(-0.25f, 0.25f), transform.position.z);
+                }
+            }
+        }
+        
         transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y / 15, transform.localScale.z);
     }
 
@@ -26,7 +54,11 @@ public class A_NerfsPtsFaible : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             //other.gameObject.GetComponent<Player>().TakeDamage(degats);
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            //gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            for (int i = 0; i < transform.parent.childCount; i++)
+            {
+                transform.parent.GetChild(i).gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            }
             transform.parent.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
         
