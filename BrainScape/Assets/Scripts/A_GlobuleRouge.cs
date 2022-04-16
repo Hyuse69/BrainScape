@@ -12,6 +12,7 @@ public class A_GlobuleRouge : MonoBehaviour
 
     private bool up;
     private float time;
+    private Animator animator;
     [SerializeField] private bool canShoot = true;
 
     [SerializeField] private AnimationCurve curve;
@@ -22,6 +23,8 @@ public class A_GlobuleRouge : MonoBehaviour
         life = enemyManager.life;
         speed = enemyManager.speed;
         degats = enemyManager.degats;
+        animator = GetComponent<Animator>();
+        StartCoroutine(Shooting());
     }
 
     // Update is called once per frame
@@ -32,17 +35,20 @@ public class A_GlobuleRouge : MonoBehaviour
         float upMultiplier = up ? 1 : -1;
         transform.position = new Vector3(7.5f, (curve.Evaluate(time % 1) * 8 - 4) * upMultiplier) ;
         time = (time + Time.fixedDeltaTime) % 2;
-        if (canShoot) StartCoroutine(Shoot());
         //transform.right = (GameObject.Find("Player").transform.position - transform.position) * -1;
     }
 
-    private IEnumerator Shoot()
+    public void Shoot()
     {
+        StartCoroutine(Shooting());
         Transform bullet = Instantiate(transform.GetChild(0), transform);
         bullet.gameObject.SetActive(true);
         bullet.SetParent(transform.parent);
-        canShoot = false;
-        yield return new WaitForSeconds(0.5f);
-        canShoot = true;
+    }
+
+    private IEnumerator Shooting()
+    {
+        yield return new WaitForSeconds(3f);
+        animator.SetTrigger("Shoot");
     }
 }
