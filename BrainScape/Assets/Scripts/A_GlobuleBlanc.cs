@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class L_GlobuleBlanc : MonoBehaviour
+public class A_GlobuleBlanc : MonoBehaviour
 {
     [SerializeField] private SO_Ennemis enemyManager;
     private Sprite sprite;
@@ -18,6 +18,8 @@ public class L_GlobuleBlanc : MonoBehaviour
     private bool locked;
     private bool charging;
     private Animator animator;
+    private Vector3 direction;
+    private Vector3 destination;
 
     [SerializeField] private AnimationCurve curve;
     void Start()
@@ -34,8 +36,22 @@ public class L_GlobuleBlanc : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(!locked) transform.right = (player.position - transform.position) * -1; 
-        if(charging) transform.Translate(transform.right * -0.3f);
+        if(!locked)
+        {
+            direction = (player.position - transform.position).normalized;
+            destination = transform.position + direction * 4.35f;
+            transform.right = direction * -1;
+        }
+        if(charging)
+        {
+            if (destination != transform.position) transform.position = Vector2.MoveTowards(transform.position, destination, Time.fixedDeltaTime*5);
+            else 
+            {
+                locked = false;
+                charging = false;
+                StartCoroutine(LockOn());
+            }
+        }
     }
 
     private IEnumerator LockOn()
@@ -48,6 +64,14 @@ public class L_GlobuleBlanc : MonoBehaviour
     public void Charge()
     {
         charging = true;
+    }
+
+    private IEnumerator TimeUntilNextCharge()
+    {
+        yield return new WaitForSeconds(1);
+        locked = false;
+        charging = false;
+        StartCoroutine(LockOn());
     }
 
     void OnBecameInvisible()

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b85ede561164d14f8bb95512ad53751, type: 3}
   m_Name: A_GlobuleRouge
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: -463207947, guid: f14eeabe7a359bc4e89a1e91cdce60b7, type: 3}
   life: 3
   speed: 1
   degats: 1
