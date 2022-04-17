@@ -62,6 +62,6 @@ public class L_Nerfs : MonoBehaviour
         Destroy(gameObject);
 
         yield return null;
-        
+       
     }
 }

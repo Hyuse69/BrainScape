@@ -92,6 +92,5 @@ public class A_Neuronnes : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
         Destroy(gameObject);
-        
     }
 }

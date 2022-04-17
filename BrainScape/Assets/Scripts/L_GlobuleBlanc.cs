@@ -91,5 +91,4 @@ public class L_GlobuleBlanc : MonoBehaviour
             spriteRenderer.color = Color.white;
         }
     }
-    
 }

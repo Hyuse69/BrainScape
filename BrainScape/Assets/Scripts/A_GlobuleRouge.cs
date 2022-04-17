@@ -81,6 +81,7 @@ public class A_GlobuleRouge : MonoBehaviour
         {
             spriteRenderer.color = Color.black;
         }
+        
         yield return new WaitForSeconds(0.1f);
         foreach (SpriteRenderer spriteRenderer in spriteList)
         {

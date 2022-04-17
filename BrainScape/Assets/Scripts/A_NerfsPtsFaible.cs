@@ -94,5 +94,6 @@ public class A_NerfsPtsFaible : MonoBehaviour
         yield return new WaitForSeconds(1f);
         if(lastChild) Destroy(transform.parent.gameObject);
         Destroy(gameObject);
+        
     }
 }

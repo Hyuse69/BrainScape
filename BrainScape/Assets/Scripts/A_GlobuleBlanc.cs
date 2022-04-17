@@ -114,6 +114,5 @@ public class A_GlobuleBlanc : MonoBehaviour
         {
             spriteRenderer.color = Color.white;
         }
-        
     }
 }
