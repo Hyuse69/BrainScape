@@ -15,32 +15,30 @@ public class A_NerfsPtsFaible : MonoBehaviour
         life = transform.parent.gameObject.GetComponent<A_Nerfs>().life;
         if (transform.parent.gameObject.GetComponent<A_Nerfs>().listPosNerfs.Count == 0)
         {
-            transform.position = new Vector3(transform.position.x, Random.Range(-0.25f, 0.25f), transform.position.z);
+            transform.position = new Vector3(transform.position.x, Random.Range(-5f, 5f), transform.position.z);
             transform.parent.gameObject.GetComponent<A_Nerfs>().listPosNerfs.Add(transform.position);
         }
         else
         {
             if (transform.parent.gameObject.GetComponent<A_Nerfs>().listPosNerfs.Count <= 1)
             {
-                transform.position = new Vector3(transform.position.x, Random.Range(-0.25f, 0.25f), transform.position.z);
-                while (Vector3.Distance(transform.position,transform.parent.gameObject.GetComponent<A_Nerfs>().listPosNerfs[0]) <= 0.05)
+                transform.position = new Vector3(transform.position.x, Random.Range(-5f, 5f), transform.position.z);
+                while (Vector3.Distance(transform.position,transform.parent.gameObject.GetComponent<A_Nerfs>().listPosNerfs[0]) <= 1.5)
                 {
-                    transform.position = new Vector3(transform.position.x, Random.Range(-0.25f, 0.25f), transform.position.z);
+                    transform.position = new Vector3(transform.position.x, Random.Range(-5f, 5f), transform.position.z);
                 }
                 transform.parent.gameObject.GetComponent<A_Nerfs>().listPosNerfs.Add(transform.position);
             }
             else
             {
-                transform.position = new Vector3(transform.position.x, Random.Range(-0.25f, 0.25f), transform.position.z);
-                while ((Vector3.Distance(transform.position,transform.parent.gameObject.GetComponent<A_Nerfs>().listPosNerfs[0]) <= 0.05) 
-                       || (Vector3.Distance(transform.position,transform.parent.gameObject.GetComponent<A_Nerfs>().listPosNerfs[1]) <= 0.05))
+                transform.position = new Vector3(transform.position.x, Random.Range(-5f, 5f), transform.position.z);
+                while ((Vector3.Distance(transform.position,transform.parent.gameObject.GetComponent<A_Nerfs>().listPosNerfs[0]) <= 1.5) 
+                       || (Vector3.Distance(transform.position,transform.parent.gameObject.GetComponent<A_Nerfs>().listPosNerfs[1]) <= 1.5))
                 {
-                    transform.position = new Vector3(transform.position.x, Random.Range(-0.25f, 0.25f), transform.position.z);
+                    transform.position = new Vector3(transform.position.x, Random.Range(-5f, 5f), transform.position.z);
                 }
             }
         }
-        
-        transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y / 15, transform.localScale.z);
     }
 
     // Update is called once per frame
