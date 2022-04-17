@@ -42,7 +42,8 @@ public class Player : MonoBehaviour
         Debug.Log(life);
         if (life <= 0)
         {
-            //Death();
+            Manager.manager.lose.SetActive(true);
+            Manager.manager.DestroyAll();
         }
         else
         {

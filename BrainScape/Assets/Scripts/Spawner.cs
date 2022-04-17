@@ -25,7 +25,8 @@ public class Spawner : MonoBehaviour
     private IEnumerator Spawn()
     {
         List<GameObject> list = logic ? LogicMobs : ArtistMobs;
-        Instantiate(list[UnityEngine.Random.Range(0, 2)], new Vector3(transform.position.x, UnityEngine.Random.Range(-4f, 4f)), quaternion.Euler(Vector3.zero));
+        var enemy = Instantiate(list[UnityEngine.Random.Range(0, 2)], new Vector3(transform.position.x, UnityEngine.Random.Range(-4f, 4f)), quaternion.Euler(Vector3.zero));
+        //Manager.manager.enemies.Add(enemy);
         yield return new WaitForSeconds(1);
         StartCoroutine(Spawn());
     }

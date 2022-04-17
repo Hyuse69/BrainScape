@@ -68,7 +68,7 @@ public class A_GlobuleBlanc : MonoBehaviour
 
     private IEnumerator TimeUntilNextCharge()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.3f);
         locked = false;
         charging = false;
         StartCoroutine(LockOn());
@@ -92,7 +92,7 @@ public class A_GlobuleBlanc : MonoBehaviour
             if (life <= 0)
             {
                 //Death();
-                Manager.manager.AddScore(10);
+                Manager.manager.AddScore(100);
                 Destroy(gameObject);
             }
             else

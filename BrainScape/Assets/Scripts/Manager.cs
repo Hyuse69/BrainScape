@@ -9,11 +9,15 @@ public class Manager : MonoBehaviour
     public static Manager manager;
     
     public int score;
+    public List<GameObject> enemies;
 
     public List<GameObject> heads;
     public Animator headAnimator;
     public GameObject head;
     public RectTransform brainMask;
+
+    public GameObject win;
+    public GameObject lose;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +52,8 @@ public class Manager : MonoBehaviour
             headAnimator.gameObject.SetActive(true);
             head.SetActive(false);
             headAnimator.SetTrigger("Death");
+            win.SetActive(true);
+            DestroyAll();
             return;
         }
 
@@ -61,5 +67,14 @@ public class Manager : MonoBehaviour
             }
             else head.SetActive(false);
         }
+    }
+
+    public void DestroyAll()
+    {
+        foreach (GameObject enemy in enemies)
+        {
+            if(enemy) Destroy(enemy);
+        }
+        Destroy(gameObject);
     }
 }
