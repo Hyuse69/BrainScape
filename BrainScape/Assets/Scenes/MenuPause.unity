@@ -1079,7 +1079,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 495864709}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: RetourPrinc
+        m_MethodName: Titre
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
