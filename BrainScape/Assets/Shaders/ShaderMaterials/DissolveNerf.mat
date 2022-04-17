@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DissolveMat
+  m_Name: DissolveNerf
   m_Shader: {fileID: -6465566751694194690, guid: f7b6bdf2819a6a2438f5b613b0970efe, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 2
@@ -44,7 +44,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _EdgeColor: {r: 879.09436, g: 0, b: 0, a: 1}
+    - _EdgeColor: {r: 766.9961, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &541344782056784511
 MonoBehaviour:
