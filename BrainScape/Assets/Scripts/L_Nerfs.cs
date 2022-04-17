@@ -11,7 +11,7 @@ public class L_Nerfs : MonoBehaviour
     private Sprite sprite;
     public float life;
     private float speed;
-    private float degats;
+    public float degats;
 
     private Vector3 defilement;
     private Quaternion randomRotate;
@@ -46,9 +46,7 @@ public class L_Nerfs : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            //other.gameObject.GetComponent<Player>().TakeDamage(degats);
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            other.gameObject.GetComponent<Player>().TakeDamage((int)degats);
         }
     }
     
@@ -64,5 +62,6 @@ public class L_Nerfs : MonoBehaviour
         Destroy(gameObject);
 
         yield return null;
+        
     }
 }

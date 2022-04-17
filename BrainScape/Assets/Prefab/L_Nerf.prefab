@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6491979131557909360}
   - component: {fileID: 7641091707437731093}
   - component: {fileID: 6082074335347990888}
+  - component: {fileID: 2062250469}
   m_Layer: 0
   m_Name: PointFaible
   m_TagString: Untagged
@@ -54,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: b6b2bb92b7c61814aa977e8922404d01, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -114,6 +115,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64d80ebfdc1bc0f41b469e2d8bf95a95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &2062250469
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825923851094594603}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 774f57e3b6c709b4387128daa2e0cc13, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4747964128743194953
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,6 +147,7 @@ GameObject:
   - component: {fileID: 4747964128743194950}
   - component: {fileID: 8063119139133160760}
   - component: {fileID: -1806046098171784858}
+  - component: {fileID: 827545180}
   m_Layer: 0
   m_Name: L_Nerf
   m_TagString: Untagged
@@ -169,7 +191,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: b6b2bb92b7c61814aa977e8922404d01, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -241,3 +263,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ennemisManager: {fileID: 11400000, guid: 62f5f4479c8058d4e86c073af9e3f602, type: 2}
   life: 0
+  degats: 0
+--- !u!95 &827545180
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4747964128743194953}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 774f57e3b6c709b4387128daa2e0cc13, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

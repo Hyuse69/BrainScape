@@ -24,6 +24,7 @@ public class L_BulletRouge : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        //if (other.CompareTag("Player")) other.GetComponent<Player>().Hit();
+        if (other.CompareTag("Player")) other.GetComponent<Player>().TakeDamage(1);
     }
+    
 }

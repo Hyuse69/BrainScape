@@ -6,6 +6,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private bool canShoot = true;
+    [SerializeField] private int life;
+    private bool canTakeDamage = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,40 @@ public class Player : MonoBehaviour
         canShoot = false;
         yield return new WaitForSeconds(0.2f);
         canShoot = true;
-        // a
+    }
+
+    public void TakeDamage(int dmg)
+    {
+        if (!canTakeDamage) return;
+        life-=dmg;
+        Debug.Log(life);
+        if (life <= 0)
+        {
+            //Death();
+        }
+        else
+        {
+            canTakeDamage = false;
+            StartCoroutine(WaitBeforeTakingDamage());
+            StartCoroutine(InvincibilityBlink());
+        }
+    }
+
+    private IEnumerator WaitBeforeTakingDamage()
+    {
+        yield return new WaitForSeconds(2);
+        canTakeDamage = true;
+    }
+
+    private IEnumerator InvincibilityBlink()
+    {
+        bool red = false;
+        SpriteRenderer ship = transform.GetChild(1).GetComponent<SpriteRenderer>();
+        while (!canTakeDamage)
+        {
+            red = !red;
+            ship.color = red?Color.red:Color.white;
+            yield return new WaitForSeconds(0.2f);
+        }
     }
 }

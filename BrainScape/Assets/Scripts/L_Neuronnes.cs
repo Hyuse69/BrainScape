@@ -47,24 +47,23 @@ public class L_Neuronnes : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            //other.gameObject.GetComponent<Player>().TakeDamage(degats);
-            Explosion();
-            Death();
-            transform.parent.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            other.gameObject.GetComponent<Player>().TakeDamage((int)degats);
+            StartCoroutine(Explosion());
+            StartCoroutine(Death());
         }
         
-        if (other.gameObject.tag == "Bullet")
+        if (other.gameObject.tag == "PlayerBullet")
         {
-            transform.parent.gameObject.GetComponent<A_Nerfs>().life -= 1;
+            life --;
 
-            if (transform.parent.gameObject.GetComponent<A_Nerfs>().life <= 0)
+            if (life <= 0)
             {
-                Explosion();
-                Death();
+                StartCoroutine(Explosion());
+                StartCoroutine(Death());
             }
             else
             {
-                TakeHit();
+                StartCoroutine(TakeHit());
             }
         }
     }
@@ -72,9 +71,9 @@ public class L_Neuronnes : MonoBehaviour
     IEnumerator Explosion()
     {
         //code visuel
-        transform.GetChild(0).gameObject.GetComponent<PolygonCollider2D>().enabled = true;
+        transform.GetChild(0).gameObject.GetComponent<CircleCollider2D>().enabled = true;
         yield return new WaitForSeconds(1);
-        transform.GetChild(0).gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+        transform.GetChild(0).gameObject.GetComponent<CircleCollider2D>().enabled = false;
         yield return null;
     }
     
@@ -88,15 +87,8 @@ public class L_Neuronnes : MonoBehaviour
 
     IEnumerator Death()
     {
-        float timeRemain = 2;
-
-        while (timeRemain > 0)
-        {
-            timeRemain -= Time.deltaTime;
-            gameObject.GetComponent<Material>().SetFloat("DissolveAmount",Mathf.Abs((timeRemain - 2)/2));
-        }
+        yield return new WaitForSeconds(0.3f);
         Destroy(gameObject);
-
-        yield return null;
+        
     }
 }
