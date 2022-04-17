@@ -15,7 +15,7 @@ public class A_Nerfs : MonoBehaviour
 
     private Vector3 defilement;
     private Quaternion randomRotate;
-    private float scaleSizeY = 15;
+    public float scaleSizeY = 0.8f;
     public List<Vector3> listPosNerfs;
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,6 @@ public class A_Nerfs : MonoBehaviour
         defilement = new Vector3((float) (speed * -0.01), 0, 0);
         
         //fin du code
-        transform.localScale = new Vector3(0.5f,scaleSizeY,1);
         transform.rotation = randomRotate;
     }
 

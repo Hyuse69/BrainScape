@@ -17,7 +17,6 @@ public class L_NerfsPtsFaible : MonoBehaviour
         animator = GetComponent<Animator>();
         life = transform.parent.gameObject.GetComponent<L_Nerfs>().life;
         transform.position = new Vector3(transform.position.x, Random.Range(-0.3f, 0.3f), transform.position.z);
-        transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y / 15, transform.localScale.z);
     }
 
     // Update is called once per frame
@@ -62,7 +61,7 @@ public class L_NerfsPtsFaible : MonoBehaviour
         var val = 0f;
         animator.SetTrigger("Dead");
         transform.parent.gameObject.GetComponent<Animator>().SetTrigger("Dead");
-        GetComponent<CircleCollider2D>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
         transform.parent.GetComponent<BoxCollider2D>().enabled = false;
         yield return new WaitForSeconds(1f);
         Destroy(transform.parent.gameObject);
