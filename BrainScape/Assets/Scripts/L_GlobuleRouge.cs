@@ -30,7 +30,7 @@ public class L_GlobuleRouge : MonoBehaviour
         if (time < 1) up = false;
         else if (time > 1) up = true;
         float upMultiplier = up ? 1 : -1;
-        transform.position = new Vector3(7.5f, (curve.Evaluate(time % 1) * 8 - 4) * upMultiplier) ;
+        transform.position = new Vector3(4f, (curve.Evaluate(time % 1) * 8 - 4) * upMultiplier);
         time = (time + Time.fixedDeltaTime) % 2;
         if (canShoot) StartCoroutine(Shoot());
         transform.right = (GameObject.Find("Player").transform.position - transform.position) * -1;
