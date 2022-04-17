@@ -20,6 +20,6 @@ public class Manager : MonoBehaviour
 
     static void AddScore(int score)
     {
-        this.score += score;
+        //this.score += score;
     }
 }
