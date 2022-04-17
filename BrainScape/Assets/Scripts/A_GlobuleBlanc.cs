@@ -92,6 +92,7 @@ public class A_GlobuleBlanc : MonoBehaviour
             if (life <= 0)
             {
                 //Death();
+                Manager.manager.AddScore(10);
                 Destroy(gameObject);
             }
             else

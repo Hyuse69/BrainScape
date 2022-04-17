@@ -59,6 +59,7 @@ public class L_GlobuleRouge : MonoBehaviour
             if (life <= 0)
             {
                 //Death();
+                Manager.manager.AddScore(10);
                 Destroy(gameObject);
             }
             else
