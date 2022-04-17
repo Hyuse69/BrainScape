@@ -39,8 +39,8 @@ public class A_BulletRouge : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        //if (other.CompareTag("Player")) other.GetComponent<Player>().Hit();
+        if (other.CompareTag("Player")) other.gameObject.GetComponent<Player>().TakeDamage(1);
     }
 }

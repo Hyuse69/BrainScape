@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     private bool canShoot = true;
     [SerializeField] private int life;
     private bool canTakeDamage = true;
+
+    public Transform lifeBar;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +19,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float x = Mathf.Clamp(Input.GetAxis("Horizontal") / 10 + transform.position.x, -8, 8);
+        float x = Mathf.Clamp(Input.GetAxis("Horizontal") / 10 + transform.position.x, -8, 5.6f);
         float y = Mathf.Clamp(Input.GetAxis("Vertical") / 10 + transform.position.y, -4, 4);
         transform.position = new Vector3(x, y, 0);
         if (Input.GetKey(KeyCode.Space) && canShoot) StartCoroutine(WaitBeforeShooting());
@@ -47,6 +49,11 @@ public class Player : MonoBehaviour
             canTakeDamage = false;
             StartCoroutine(WaitBeforeTakingDamage());
             StartCoroutine(InvincibilityBlink());
+        }
+
+        for (int i = 0; i < lifeBar.childCount; i++)
+        {
+            if (i+1 > life) lifeBar.GetChild(i).gameObject.SetActive(false);
         }
     }
 
