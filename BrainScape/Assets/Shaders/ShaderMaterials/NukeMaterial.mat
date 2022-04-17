@@ -38,7 +38,7 @@ Material:
     - _QueueOffset: 0
     - _VertexOffset: 0.05
     m_Colors:
-    - _Color: {r: 101.09326, g: 2.1171365, b: 0, a: 1}
+    - _Color: {r: 766.9961, g: 20.078432, b: 0, a: 1}
     - _NoiseSpeed: {r: 0, g: -0.1, b: 0, a: 0}
     - _NoiseSpeed2: {r: 0, g: -0.05, b: 0, a: 0}
   m_BuildTextureStacks: []
