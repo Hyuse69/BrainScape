@@ -6,7 +6,7 @@ using UnityEngine;
 public static class Savemanager
 {
     public static string directory = "/SaveData/";
-    public static string fileName = "OptionsSave.json";
+    public static string fileName = "BrainScapeOptionsSave.json";
     
     public static void SaveOptions(OptionsSO so)
     {
