@@ -69,6 +69,6 @@ public class L_NerfsPtsFaible : MonoBehaviour
         Destroy(gameObject);
 
         yield return null;
-        
+       
     }
 }
