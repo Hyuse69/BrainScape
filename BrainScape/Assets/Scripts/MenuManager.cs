@@ -46,7 +46,7 @@ public class MenuManager : MonoBehaviour
 
     public void Reprendre()
     {
-        //GameObject.Find("Player").GetComponent<Player>().isPaused = false;
+        GameObject.Find("Main Camera").GetComponent<Pauseescape>().isPaused = false;
         Time.timeScale = 1;
         SceneManager.UnloadSceneAsync(gameObject.scene);
     }
