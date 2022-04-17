@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1976275482406960768}
   - component: {fileID: 1976275482406960770}
   - component: {fileID: 1976275482406960773}
+  - component: {fileID: 7680592548239056742}
   m_Layer: 0
   m_Name: L_GlobuleBlanc
   m_TagString: Untagged
@@ -76,6 +77,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &7680592548239056742
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976275482406960771}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.23221016, y: 0.38344145}
+  serializedVersion: 2
+  m_Radius: 2.9082203
 --- !u!1 &5183938987032554827
 GameObject:
   m_ObjectHideFlags: 0

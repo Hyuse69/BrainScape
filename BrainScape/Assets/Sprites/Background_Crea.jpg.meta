@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ad27f0f62d5500542b4fd1c3fb7ea87b
+guid: 0e355bab6572dce4cada17117ef8e7cb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -102,91 +102,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Background_Crea_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2170
-        width: 3840
-        height: 2160
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0d09dddffd3c48946b25f9fdd02291c7
-      internalID: 1831498044
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Background_Crea_1
-      rect:
-        serializedVersion: 2
-        x: 3850
-        y: 2170
-        width: 3840
-        height: 2160
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a207f63e090afa84bb5dcb0ca0f717fc
-      internalID: -34317961
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Background_Crea_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 3840
-        height: 2160
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 57fe666df45837a46a615e287c326db5
-      internalID: 1786391111
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Background_Crea_3
-      rect:
-        serializedVersion: 2
-        x: 3850
-        y: 0
-        width: 3840
-        height: 2160
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c9b00b1738b981342815ad7515147d34
-      internalID: -318321924
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -197,11 +113,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Background_Crea_2: 1786391111
-      Background_Crea_0: 1831498044
-      Background_Crea_3: -318321924
-      Background_Crea_1: -34317961
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
