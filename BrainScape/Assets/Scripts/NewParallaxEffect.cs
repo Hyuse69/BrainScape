@@ -18,7 +18,6 @@ public class NewParallaxEffect : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log(transform.position.x);
         if (transform.position.x < endPos.position.x)
         {
             transform.position = new Vector3(startPos.position.x,0,0);
