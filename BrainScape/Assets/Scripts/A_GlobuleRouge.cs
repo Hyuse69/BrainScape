@@ -51,4 +51,41 @@ public class A_GlobuleRouge : MonoBehaviour
         yield return new WaitForSeconds(3f);
         animator.SetTrigger("Shoot");
     }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            other.gameObject.GetComponent<Player>().TakeDamage((int)degats);
+        }
+        
+        if (other.gameObject.tag == "PlayerBullet")
+        {
+            life--;
+            if (life <= 0)
+            {
+                //Death();
+                Destroy(gameObject);
+            }
+            else
+            {
+                StartCoroutine(TakeHit());
+            }
+        }
+    }
+
+    private IEnumerator TakeHit()
+    {
+        SpriteRenderer[] spriteList = GetComponentsInChildren<SpriteRenderer>();
+        foreach (SpriteRenderer spriteRenderer in spriteList)
+        {
+            spriteRenderer.color = Color.black;
+        }
+        
+        yield return new WaitForSeconds(0.1f);
+        foreach (SpriteRenderer spriteRenderer in spriteList)
+        {
+            spriteRenderer.color = Color.white;
+        }
+    }
 }

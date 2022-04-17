@@ -7,16 +7,16 @@ using Random = UnityEngine.Random;
 public class A_NerfsPtsFaible : MonoBehaviour
 {
     private float life;
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         life = transform.parent.gameObject.GetComponent<A_Nerfs>().life;
         if (transform.parent.gameObject.GetComponent<A_Nerfs>().listPosNerfs.Count == 0)
         {
-            //Debug.Log(transform.parent.gameObject.GetComponent<A_Nerfs>().listPosNerfs.Count);
             transform.position = new Vector3(transform.position.x, Random.Range(-0.25f, 0.25f), transform.position.z);
             transform.parent.gameObject.GetComponent<A_Nerfs>().listPosNerfs.Add(transform.position);
-            //Debug.Log(transform.parent.gameObject.GetComponent<A_Nerfs>().listPosNerfs.Count);
         }
         else
         {
@@ -53,30 +53,24 @@ public class A_NerfsPtsFaible : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            //other.gameObject.GetComponent<Player>().TakeDamage(degats);
-            //gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            for (int i = 0; i < transform.parent.childCount; i++)
-            {
-                transform.parent.GetChild(i).gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            }
-            transform.parent.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            other.gameObject.GetComponent<Player>().TakeDamage((int)transform.parent.GetComponent<A_Nerfs>().degats);
         }
         
-        if (other.gameObject.tag == "Bullet")
+        if (other.gameObject.tag == "PlayerBullet")
         {
             transform.parent.gameObject.GetComponent<A_Nerfs>().life -= 1;
 
             if (transform.parent.gameObject.GetComponent<A_Nerfs>().life <= 0)
             {
-                Death();
+                StartCoroutine(Death());
                 if (transform.parent.childCount == 0)
                 {
-                    transform.parent.gameObject.GetComponent<A_Nerfs>().Death();
+                    StartCoroutine(transform.parent.gameObject.GetComponent<A_Nerfs>().Death());
                 }
             }
             else
             {
-                TakeHit();
+                StartCoroutine(TakeHit());
             }
         }
     }
@@ -91,15 +85,15 @@ public class A_NerfsPtsFaible : MonoBehaviour
 
     IEnumerator Death()
     {
-        float timeRemain = 2;
-
-        while (timeRemain > 0)
-        {
-            timeRemain -= Time.deltaTime;
-            gameObject.GetComponent<Material>().SetFloat("DissolveAmount",Mathf.Abs((timeRemain - 2)/2));
-        }
+        bool lastChild = (transform.parent.childCount == 1);
+        var val = 0f;
+        animator.SetTrigger("Dead");
+        if(lastChild) transform.parent.gameObject.GetComponent<Animator>().SetTrigger("Dead");
+        GetComponent<CircleCollider2D>().enabled = false;
+        if(lastChild) transform.parent.GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds(1f);
+        if(lastChild) Destroy(transform.parent.gameObject);
         Destroy(gameObject);
-
-        yield return null;
+        
     }
 }

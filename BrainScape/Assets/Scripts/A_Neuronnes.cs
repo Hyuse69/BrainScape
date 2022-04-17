@@ -47,24 +47,24 @@ public class A_Neuronnes : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            //other.gameObject.GetComponent<Player>().TakeDamage(degats);
-            Explosion();
-            Death();
+            other.gameObject.GetComponent<Player>().TakeDamage((int)degats);
+            StartCoroutine(Explosion());
+            StartCoroutine(Death());
             transform.parent.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
         
-        if (other.gameObject.tag == "Bullet")
+        if (other.gameObject.tag == "PlayerBullet")
         {
-            transform.parent.gameObject.GetComponent<A_Nerfs>().life -= 1;
+            life --;
 
-            if (transform.parent.gameObject.GetComponent<A_Nerfs>().life <= 0)
+            if (life <= 0)
             {
-                Explosion();
-                Death();
+                StartCoroutine(Explosion());
+                StartCoroutine(Death());
             }
             else
             {
-                TakeHit();
+                StartCoroutine(TakeHit());
             }
         }
     }
@@ -73,10 +73,10 @@ public class A_Neuronnes : MonoBehaviour
     {
         //code visuel
         transform.GetChild(0).gameObject.GetComponent<PolygonCollider2D>().enabled = true;
-        transform.GetChild(1).gameObject.GetComponent<PolygonCollider2D>().enabled = true;
+        transform.GetChild(1).gameObject.GetComponent<CircleCollider2D>().enabled = true;
         yield return new WaitForSeconds(1);
         transform.GetChild(0).gameObject.GetComponent<PolygonCollider2D>().enabled = false;
-        transform.GetChild(1).gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+        transform.GetChild(1).gameObject.GetComponent<CircleCollider2D>().enabled = false;
         yield return null;
     }
     
@@ -90,15 +90,7 @@ public class A_Neuronnes : MonoBehaviour
 
     IEnumerator Death()
     {
-        float timeRemain = 2;
-
-        while (timeRemain > 0)
-        {
-            timeRemain -= Time.deltaTime;
-            gameObject.GetComponent<Material>().SetFloat("DissolveAmount",Mathf.Abs((timeRemain - 2)/2));
-        }
+        yield return new WaitForSeconds(0.3f);
         Destroy(gameObject);
-
-        yield return null;
     }
 }
