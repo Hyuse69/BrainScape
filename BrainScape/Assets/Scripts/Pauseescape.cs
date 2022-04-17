@@ -18,13 +18,13 @@ public class Pauseescape : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
         {
             Time.timeScale = 0;
-            SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync("MenuPause", LoadSceneMode.Additive);
             isPaused = true;
         }
-        if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
+        else if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
         {
             Time.timeScale = 1;
-            SceneManager.UnloadSceneAsync(2);
+            SceneManager.UnloadSceneAsync("MenuPause");
             isPaused = false;
         }
     }
