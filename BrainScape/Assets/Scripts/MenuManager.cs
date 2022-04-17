@@ -19,7 +19,7 @@ public class MenuManager : MonoBehaviour
 
     public void Jouer()
     {
-        SceneManager.LoadSceneAsync("SceneLoadingLevel",LoadSceneMode.Additive);
+        SceneManager.LoadScene(1);
     }
 
     public void Options()
